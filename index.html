@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPA | Control de Horas</title>
+    <style>
+        /* Paleta: Azul Acero y Gris Profesional */
+        :root {
+            --upa-dark: #0f172a;
+            --upa-blue: #1e40af;
+            --upa-accent: #f97316;
+            --bg: #f8fafc;
+        }
+
+        /* Animación suave para el contenido */
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--upa-dark);
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR SÓLIDA */
+        nav {
+            background: white;
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--upa-dark); }
+        .logo span { color: var(--upa-blue); }
+
+        .nav-links { display: flex; gap: 30px; align-items: center; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--upa-dark); 
+            font-weight: 600; 
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+        .nav-links a:hover { color: var(--upa-blue); }
+
+        .btn-portal {
+            background: var(--upa-dark);
+            color: white !important;
+            padding: 8px 18px;
+            border-radius: 5px;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 80px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 70vh;
+        }
+
+        .hero-content { 
+            max-width: 600px; 
+            animation: reveal 0.8s ease-out;
+        }
+
+        .hero-content span.tag {
+            background: #dbeafe;
+            color: var(--upa-blue);
+            padding: 5px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 20px 0;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        p { color: #64748b; font-size: 1.1rem; margin-bottom: 35px; line-height: 1.6; }
+
+        /* BOTONES DE ACCIÓN */
+        .actions { display: flex; gap: 15px; }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--upa-blue);
+            color: white;
+            border: 2px solid var(--upa-blue);
+        }
+        .btn-primary:hover {
+            background: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 64, 175, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--upa-dark);
+            border: 2px solid #cbd5e1;
+        }
+        .btn-outline:hover {
+            border-color: var(--upa-dark);
+            background: #f1f5f9;
+        }
+
+        /* ELEMENTO GRÁFICO (PARA QUE NO SE VEA VACÍO) */
+        .hero-image {
+            width: 400px;
+            height: 400px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 20px 20px 0px #e2e8f0;
+            animation: reveal 1s ease-out;
+        }
+
+        .inner-box {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .data-badge {
+            background: #f0fdf4;
+            color: #166534;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border: 1px solid #bbf7d0;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">UPA<span>.</span></a>
+        <div class="nav-links">
+            
+            <a href="horarios.html">Talleres</a>
+            <a href="registro.html" class="btn-portal">Mi Cuenta</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="tag">Sistema SQAP 2026</span>
+            <h1>Gestión de Horas <br><span style="color:var(--upa-blue)">Extracurriculares</span></h1>
+            <p>Plataforma institucional para el registro y validación de actividades deportivas, culturales y académicas.</p>
+            
+            <div class="actions">
+                <a href="registro.html" class="btn btn-primary">Acceder al Sistema</a>
+                <a href="horarios.html" class="btn btn-outline">Ver Horarios</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="inner-box">
+                <div style="font-size: 50px; margin-bottom: 10px;">📊</div>
+                <div class="data-badge">Sincronizado con MySQL</div>
+                <p style="font-size: 13px; margin-top: 15px;">Integridad de datos verificada para el periodo actual.</p>
+            </div>
+        </div>
+    </header>
+
+</body>
+</html>

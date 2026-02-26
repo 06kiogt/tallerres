@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPA | Consulta de Horas</title>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #0f172a;
+            --bg: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        /* Animación de entrada */
+        @keyframes slideDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg); 
+            color: var(--secondary);
+        }
+
+        /* Navegación Mejorada */
+        nav {
+            padding: 15px 8%;
+            background: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            animation: slideDown 0.5s ease-out;
+        }
+
+        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: var(--secondary); }
+        .logo span { color: var(--primary); }
+
+        .nav-links { display: flex; align-items: center; gap: 25px; }
+        
+        .nav-link { 
+            text-decoration: none; 
+            color: var(--secondary); 
+            font-weight: 600; 
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: var(--primary); }
+
+        .btn-cuenta {
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+        }
+        .btn-cuenta:hover { transform: scale(1.05); background: #4338ca; }
+
+        .container { max-width: 1000px; margin: 40px auto; padding: 20px; animation: fadeIn 0.8s ease-out; }
+        
+        h2 { text-align: center; font-size: 32px; margin-bottom: 5px; }
+        .status { text-align: center; color: #10b981; font-weight: bold; margin-bottom: 30px; font-size: 14px; }
+
+        /* Estilo de la Tabla */
+        .table-wrapper {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+        th { background: #f8fafc; padding: 20px; color: #64748b; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
+        td { padding: 20px; border-bottom: 1px solid #f1f5f9; transition: 0.2s; }
+        tr:hover td { background: #fdfdff; }
+
+        .taller-name { font-weight: 700; color: var(--secondary); font-size: 16px; }
+        .taller-meta { font-size: 13px; color: #64748b; display: block; }
+
+        .badge-hora {
+            background: #eef2ff;
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-weight: 800;
+            border: 1px solid #e0e7ff;
+        }
+
+        .note { text-align: center; margin-top: 30px; color: #94a3b8; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">UPA<span>.</span></a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Inicio</a>
+            <a href="registro.html" class="btn-cuenta">Mi Cuenta</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h2>Módulo de Consulta</h2>
+        <p class="status">Sincronización con MySQL Activa</p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taller</th>
+                        <th>Ubicación</th>
+                        <th>Horas Acumuladas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><span class="taller-name">Baile</span><span class="taller-meta">Lun y Mié | 14:00</span></td><td>Gimnasio</td><td><span class="badge-hora">45 hrs</span></td></tr>
+                    <tr><td><span class="taller-name">Taekwondo</span><span class="taller-meta">Mar y Jue | 14:00</span></td><td>Sala de Combate</td><td><span class="badge-hora">30 hrs</span></td></tr>
+                    <tr><td><span class="taller-name">Artes</span><span class="taller-meta">Viernes | 12:00</span></td><td>Aula 4</td><td><span class="badge-hora">20 hrs</span></td></tr>
+                    <tr><td><span class="taller-name">;Musica</span><span class="taller-meta">Lun a Jue | 07:00</span></td><td>Pista</td><td><span class="badge-hora">60 hrs</span></td></tr>
+                    <tr><td><span class="taller-name">Baile</span><span class="taller-meta">Mié y Vie | 15:00</span></td><td>Auditorio</td><td><span class="badge-hora">35 hrs</span></td></tr>
+                    <tr><td><span class="taller-name">Ajedrez</span><span class="taller-meta">Martes | 13:00</span></td><td>Biblioteca</td><td><span class="badge-hora">15 hrs</span></td></tr>
+                    <tr><td><span class="taller-name">Música</span><span class="taller-meta">Lun y Jue | 11:00</span></td><td>Cubo Música</td><td><span class="badge-hora">25 hrs</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="note">🔒 Información protegida bajo el marco SQAP 2026</p>
+    </main>
+
+</body>
+</html>
