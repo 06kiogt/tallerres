@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPA | Portal de Acceso</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="login-page">
+
+    <div class="split-layout">
+        <div class="side-brand"></div>
+
+        <div class="side-form">
+            <div class="login-card-pro">
+                <header class="login-header">
+                    <div class="logo-placeholder">
+                        <i class="ph-bold ph-graduation-cap"></i>
+                    </div>
+                    <h2>Bienvenido de nuevo</h2>
+                    <p>Ingresa tus credenciales para acceder al portal</p>
+                </header>
+
+                <form class="form-exec" id="login-form" action="validar_login.php" method="POST">
+                    <div class="input-pro-group">
+                        <label><i class="ph ph-user"></i> NOMBRE DE USUARIO</label>
+                        <input type="text" name="usuario" placeholder="Ej: Geraldine_UPA" required>
+                    </div>
+
+                    <div class="input-pro-group">
+                        <label><i class="ph ph-lock"></i> CONTRASEÑA</label>
+                        <input type="password" name="password" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="login-actions">
+                        <button type="submit" class="btn-login-exec">
+                            INGRESAR <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                        <button type="button" class="btn-home-exec" onclick="location.href='index.html'">
+                            <i class="ph ph-house"></i> VOLVER AL INICIO
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

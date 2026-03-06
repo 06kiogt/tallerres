@@ -1,0 +1,928 @@
+/* =========================================
+   VARIABLES GLOBALES (TU BASE ORIGINAL)
+   ========================================= */
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --upa-blue: #1e40af;
+    --upa-dark: #0f172a;
+    --bg-body: #f1f5f9;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    /* Variables para estados */
+    --success-bg: #f0fdf4;
+    --success-text: #166534;
+}
+
+/* =========================================
+   RESETEO Y BASE
+   ========================================= */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', sans-serif; 
+}
+
+body { 
+    background-color: var(--bg-body); 
+    color: var(--text-main); 
+    min-height: 100vh; 
+    overflow-x: hidden;
+}
+
+/* =========================================
+   NAVEGACIÓN (ESTILO MINIMALISTA)
+   ========================================= */
+nav, .nav-minimal, .nav-premium {
+    background: var(--white);
+    padding: 1rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    position: sticky; 
+    top: 0; 
+    z-index: 100;
+}
+
+.logo, .logo-minimal, .logo-premium { 
+    font-size: 1.5rem; 
+    font-weight: 800; 
+    text-decoration: none; 
+    color: var(--upa-dark); 
+}
+.logo span, .logo-minimal span, .logo-premium span { color: var(--primary); }
+
+.nav-links, .nav-links-minimal, .nav-links-premium { 
+    display: flex; 
+    gap: 25px; 
+    align-items: center; 
+}
+
+.main-link, .nav-links-minimal a, .nav-links-premium a { 
+    text-decoration: none; 
+    color: var(--upa-dark); 
+    font-weight: 600; 
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.btn-portal, .btn-cuenta-minimal, .btn-portal-premium {
+    background: var(--upa-dark);
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+/* =========================================
+   SECCIÓN HERO (ALINEACIÓN PROFESIONAL)
+   ========================================= */
+.hero, .hero-exec, .hero-premium {
+    padding: 80px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Mantiene el equilibrio del diseño */
+    min-height: 80vh;
+    background-color: var(--white);
+    gap: 50px;
+}
+
+.hero-content { 
+    flex: 1; 
+    max-width: 650px; 
+    animation: reveal 0.8s ease-out; 
+}
+
+.tag, .tag-minimal, .badge-new {
+    background: #dbeafe; 
+    color: var(--upa-blue);
+    padding: 6px 14px; 
+    font-size: 12px; 
+    font-weight: 700;
+    border-radius: 4px; 
+    text-transform: uppercase;
+}
+
+h1 { 
+    font-size: 3.8rem; 
+    margin: 25px 0; 
+    line-height: 1.1; 
+    letter-spacing: -1px; 
+    color: var(--upa-dark);
+}
+
+.text-blue, .text-blue-exec, .gradient-text { 
+    color: var(--upa-blue); 
+    font-weight: 800;
+}
+
+.hero-p, .hero-content p { 
+    color: var(--text-muted); 
+    font-size: 1.15rem; 
+    margin-bottom: 40px; 
+    line-height: 1.6; 
+}
+
+/* =========================================
+   TARJETA DE ESTADO (SOMBRA DE 25PX)
+   ========================================= */
+.hero-image, .status-card-exec, .card-status-premium {
+    width: 420px; 
+    height: 420px; 
+    background: var(--white);
+    border: 1px solid #e2e8f0; 
+    border-radius: 1px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    /* Sombra sólida solicitada para el acabado ejecutivo */
+    box-shadow: 25px 25px 0px #e2e8f0; 
+    flex-shrink: 0;
+}
+
+.icon-status, .inner-status i, .icon-box { 
+    font-size: 11px; 
+    color: var(--upa-blue);
+    margin-bottom: 20px; 
+}
+
+.sync-badge, .sync-label, .sync-tag {
+    background: var(--success-bg); 
+    color: var(--success-text);
+    padding: 12px 25px; 
+    border-radius: 30px;
+    font-weight: bold; 
+    border: 1px solid #bbf7d0;
+    display: inline-block;
+}
+
+.status-footer, .status-card-exec p { 
+    font-size: 0.9rem; 
+    color: #94a3b8; 
+    margin-top: 15px; 
+}
+
+/* =========================================
+   GALERÍA DE TALLERES (6 DISCIPLINAS)
+   ========================================= */
+.talleres-preview, .disciplinas-section {
+    padding: 80px 8%;
+    background-color: var(--bg-body);
+}
+
+.section-title, .section-header { margin-bottom: 50px; }
+.section-title h2, .section-header h2 { font-size: 2.2rem; color: var(--upa-dark); }
+
+.gallery-grid, .gallery-premium {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.taller-card, .disciplina-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.taller-card:hover, .disciplina-card:hover { transform: translateY(-10px); }
+
+.taller-img, .card-bg {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f1f5f9;
+}
+
+.taller-caption, .card-info { padding: 25px; }
+.taller-caption h3 { color: var(--upa-dark); font-size: 1.3rem; }
+.taller-caption span { color: var(--text-muted); font-size: 0.9rem; }
+
+/* =========================================
+   ACCIONES Y BOTONES
+   ========================================= */
+.actions, .actions-exec, .hero-actions { display: flex; gap: 15px; }
+
+.btn-home, .btn-exec, .btn-premium {
+    padding: 15px 30px; 
+    border-radius: 6px;
+    font-weight: 700; 
+    text-decoration: none; 
+    transition: 0.3s;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.btn-home-primary, .btn-blue, .btn-solid { background: var(--upa-blue); color: white; border: none; }
+.btn-home-outline, .btn-outline, .btn-light { border: 2px solid #cbd5e1; color: var(--upa-dark); background: transparent; }
+
+@keyframes reveal {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* =========================================
+   PÁGINA: REGISTRO TALLERES (Captura 4)
+   ========================================= */
+.art-background {
+    background: url('https://img.freepik.com/foto-gratis/fondo-textura-pintura-abstracta_23-2148421444.jpg');
+    background-size: cover; min-height: 100vh;
+    display: flex; justify-content: center; align-items: center; padding: 20px;
+}
+.talleres-box {
+    background: white; width: 100%; max-width: 1000px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+.alert-info {
+    border: 1px solid #eee; margin: 20px; padding: 15px;
+    background: #fdfdfd; font-size: 13px; color: #333;
+}
+.grid-form {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px; padding: 20px;
+}
+.grid-item label { display: block; font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+.grid-item input {
+    width: 100%; padding: 10px; border: 1px solid #ccc; background: #fafafa;
+}
+.btn-footer { display: flex; }
+.btn-dark { flex: 1; background: #37474f; color: white; border: none; padding: 15px; cursor: pointer; }
+.btn-cyan { flex: 1; background: #00bcd4; color: white; border: none; padding: 15px; cursor: pointer; }
+
+/* Reutilizables */
+.input-group { text-align: left; margin-bottom: 20px; }
+.input-group label { display: block; color: var(--text-muted); margin-bottom: 8px; }
+
+
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE CONSULTA --- */
+
+/* Centrado de la tarjeta en la pantalla */
+.body-consulta {
+    background-color: #94a3b8; /* Fondo gris profesional como en la captura */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.contenedor-consulta {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tarjeta-consulta {
+    background: var(--white);
+    width: 100%;
+    max-width: 700px;
+    padding: 50px;
+    border-radius: 4px; /* Bordes rectos como la captura */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.encabezado-consulta h2 {
+    font-size: 2.2rem;
+    color: #333;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.encabezado-consulta p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+/* Estilo de Input con línea azul (Captura 11) */
+.grupo-entrada {
+    margin-bottom: 60px;
+}
+
+.grupo-entrada label {
+    display: block;
+    color: #00bcd4; /* Azul cyan de la captura */
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.grupo-entrada input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    outline: none;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+
+.grupo-entrada input:focus {
+    border-bottom: 2px solid #00bcd4;
+}
+
+/* Botones alineados a la derecha */
+.botones-consulta {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.btn-consulta {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-teal {
+    background-color: #26a69a; /* Color turquesa de los botones de la captura */
+    color: white;
+}
+
+.btn-gris {
+    background-color: #26a69a; /* En la captura ambos botones son iguales */
+    color: white;
+}
+
+.btn-consulta:hover {
+    filter: brightness(0.9);
+}
+
+
+/* --- ESTILOS REGISTRO TALLERES (INNOVACIÓN) --- */
+
+.body-talleres {
+    /* Fondo artístico con gradiente y textura basado en tu captura */
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.8), rgba(15, 23, 42, 0.9)), 
+                url('https://www.transparenttextures.com/patterns/cubes.png'),
+                url('https://images.unsplash.com/photo-1557683316-973673baf926?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.talleres-container {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 900px;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card-header h1 {
+    font-size: 2rem;
+    color: var(--upa-dark);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card-header h1 span {
+    color: var(--upa-blue);
+    font-weight: 800;
+}
+
+.alert-banner {
+    background: #fefce8;
+    border-left: 4px solid #eab308;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.alert-banner i { font-size: 1.5rem; color: #eab308; }
+.alert-banner p { font-size: 0.9rem; color: #854d0e; margin: 0; line-height: 1.4; }
+
+/* Grid del Formulario */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.full-width { grid-column: 1 / -1; }
+
+.select-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* Inputs y Selects */
+.input-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 8px;
+}
+
+.input-group input, 
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.input-group input:focus, 
+.input-group select:focus {
+    border-color: var(--upa-blue);
+    box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+    outline: none;
+}
+
+/* Botones */
+.form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn-primary-talleres {
+    background: var(--upa-blue);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary-talleres:hover {
+    background: var(--upa-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.3);
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1.5px solid #e2e8f0;
+    padding: 14px 28px;
+    border-radius: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .select-wrapper { grid-template-columns: 1fr; }
+    .glass-card { padding: 25px; }
+
+}
+
+/* --- EXTENSIÓN ESTILO EJECUTIVO PARA TALLERES --- */
+
+.container-minimal {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.calendar-header-minimal {
+    margin-bottom: 30px;
+}
+
+.calendar-header-minimal h1 {
+    font-size: 2rem;
+    color: var(--upa-navy);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.calendar-header-minimal h1 span {
+    font-weight: 400;
+    color: #64748b;
+    font-size: 1.2rem;
+}
+
+.info-banner-minimal {
+    background-color: var(--white);
+    border-left: 4px solid var(--upa-navy);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: var(--upa-text);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.info-banner-minimal i { font-size: 1.2rem; color: #2563eb; }
+
+/* Tabla Ejecutiva */
+.table-card-minimal {
+    background: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.styled-table-minimal {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.styled-table-minimal thead tr {
+    background-color: var(--upa-navy);
+    color: var(--white);
+    text-align: left;
+}
+
+.styled-table-minimal th {
+    padding: 15px 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.styled-table-minimal td {
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.taller-exec {
+    color: var(--upa-navy);
+}
+
+.total-column {
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.styled-table-minimal tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Footer de la Tabla */
+.calendar-footer-minimal {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: #fcfcfd;
+}
+
+/* Ajustes adicionales para consistencia */
+.btn-exec i { font-size: 1rem; }
+
+/* --- ESTILO LOGIN PROFESIONAL --- */
+
+:root {
+    --upa-navy: #0f172a;
+    --upa-blue: #2563eb;
+    --upa-bg: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --white: #ffffff;
+}
+
+body.login-page {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background-color: var(--upa-bg);
+}
+
+.split-layout {
+    display: flex;
+    height: 100vh;
+}
+
+/* Panel Lateral Azul */
+.side-brand {
+    flex: 0.4;
+    background-color: var(--upa-navy);
+    display: none; /* Se activa en pantallas grandes */
+}
+
+@media (min-width: 900px) {
+    .side-brand { display: block; }
+}
+
+/* Contenedor del Formulario */
+.side-form {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-card-pro {
+    background: var(--white);
+    width: 100%;
+    max-width: 450px;
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.logo-placeholder {
+    font-size: 3rem;
+    color: var(--upa-blue);
+    margin-bottom: 15px;
+}
+
+.login-header h2 {
+    font-size: 2rem;
+    color: var(--upa-navy);
+    margin: 0;
+    font-weight: 700;
+}
+
+.login-header p {
+    color: var(--text-muted);
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+/* Campos de Entrada */
+.input-pro-group {
+    margin-bottom: 25px;
+}
+
+.input-pro-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--upa-navy);
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.input-pro-group input {
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #f1f5f9;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-pro-group input:focus {
+    background-color: var(--white);
+    border-color: var(--upa-blue);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+/* Botones */
+.login-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn-login-exec {
+    background-color: var(--upa-blue);
+    color: var(--white);
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-login-exec:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.btn-home-exec {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid #e2e8f0;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-home-exec:hover {
+    background-color: #f8fafc;
+    color: var(--upa-navy);
+    border-color: #cbd5e1;
+}
+/* --- ESTILO EJECUTIVO Y PROFESIONAL --- */
+:root {
+    --upa-navy: #0f172a;
+    --upa-silver: #f1f5f9;
+    --upa-text: #334155;
+    --border-color: #e2e8f0;
+    --white: #ffffff;
+}
+
+body.body-consulta-minimal {
+    margin: 0;
+    background-color: var(--upa-silver);
+    color: var(--upa-text);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navegación Sobria */
+.nav-minimal {
+    background: var(--white);
+    padding: 1.2rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo-minimal { font-size: 1.4rem; font-weight: 800; text-decoration: none; color: var(--upa-navy); }
+.logo-minimal span { color: #2563eb; }
+
+.nav-links-minimal a {
+    text-decoration: none;
+    color: var(--upa-text);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-left: 25px;
+    transition: 0.2s;
+}
+
+.nav-links-minimal a.active { color: #2563eb; font-weight: 700; }
+
+.btn-cuenta-minimal {
+    background: var(--upa-navy);
+    color: var(--white) !important;
+    padding: 8px 16px;
+    border-radius: 4px;
+}
+
+/* Tarjeta Corporativa Dividida */
+.main-consulta {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.card-corporativa {
+    background: var(--white);
+    display: flex;
+    width: 100%;
+    max-width: 850px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-aside {
+    background: var(--upa-navy);
+    color: var(--white);
+    width: 300px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-aside i { font-size: 3rem; margin-bottom: 20px; opacity: 0.5; }
+.card-aside h3 { margin-bottom: 10px; font-weight: 600; }
+.card-aside p { font-size: 0.85rem; line-height: 1.5; opacity: 0.8; }
+
+.card-form-container {
+    flex: 1;
+    padding: 50px;
+}
+
+.form-header-minimal h2 { font-size: 1.75rem; color: var(--upa-navy); margin-bottom: 10px; }
+.form-header-minimal p { color: #64748b; font-size: 0.95rem; margin-bottom: 40px; }
+
+/* Formulario */
+.input-minimal-group { margin-bottom: 30px; }
+.input-minimal-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #475569;
+    margin-bottom: 10px;
+}
+
+.input-minimal-group input {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    font-size: 1.1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-minimal-group input:focus { border-bottom-color: var(--upa-navy); }
+
+/* Botones Ejecutivos */
+.form-footer-minimal {
+    display: flex;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.btn-exec {
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: 0.2s;
+}
+
+.btn-blue { background: #2563eb; color: var(--white); }
+.btn-blue:hover { background: #1d4ed8; }
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--upa-text);
+}
+
+.btn-outline:hover { background: var(--upa-silver); }
+
+.security-tag {
+    margin-top: 40px;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

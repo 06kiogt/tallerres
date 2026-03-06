@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPA | Consulta Institucional</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="body-consulta-minimal">
+
+    <nav class="nav-minimal">
+        <a href="index.html" class="logo-minimal">UPA<span>.</span></a>
+        <div class="nav-links-minimal">
+            <a href="consulta.html" class="active">Consultar Horas</a>
+            <a href="registrar.html">Registrar</a>
+            <a href="talleres.html">Talleres</a>
+            <a href="login.html" class="btn-cuenta-minimal">Mi Cuenta</a>
+        </div>
+    </nav>
+
+    <main class="main-consulta">
+        <div class="card-corporativa">
+            <div class="card-aside">
+                <i class="ph-bold ph-file-search"></i>
+                <h3>Seguimiento Académico</h3>
+                <p>Módulo oficial de validación de horas extracurriculares para el periodo 2026.</p>
+            </div>
+            
+            <div class="card-form-container">
+                <header class="form-header-minimal">
+                    <h2>Consultar Horas Acumuladas</h2>
+                    <p>La constancia oficial se habilita al completar 150 horas.</p>
+                </header>
+
+                <form class="form-minimal" action="consultar_horas.php" method="GET">
+                    <div class="input-minimal-group">
+                        <label for="matricula">Matrícula del Estudiante</label>
+                        <input type="text" name="matricula" placeholder="Ej: 122030xxx" required>
+                    </div>
+
+                    <div class="form-footer-minimal">
+                        <button type="submit" class="btn-exec btn-blue">Verificar Estatus</button>
+                        <button type="button" class="btn-exec btn-outline" onclick="location.href='index.html'">Inicio</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

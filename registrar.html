@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPA | Registro de Talleres</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="body-talleres">
+
+    <nav>
+        <a href="index.html" class="logo">UPA<span>.</span></a>
+        <div class="nav-links">
+            <a href="consulta.html" class="main-link">Consultar Horas</a>
+            <a href="registrar.html" class="main-link active">Registrar</a>
+            <a href="talleres.html" class="main-link">Talleres</a>
+            <a href="login.html" class="btn-portal">Mi Cuenta</a>
+        </div>
+    </nav>
+
+    <main class="talleres-container">
+        <div class="glass-card">
+            <header class="card-header">
+                <h1>TALLERES | <span>UPA 2026</span></h1>
+                <div class="alert-banner">
+                    <i class="ph ph-info"></i>
+                    <p><strong>IMPORTANTE:</strong> Solo se permite un único intento de registro. Asegúrate de que los datos coincidan con tu carga académica.</p>
+                </div>
+            </header>
+
+            <form class="form-grid" id="formRegistro" action="registrar_taller.php" method="POST">
+                <div class="form-section">
+                    <div class="input-group">
+                        <label><i class="ph ph-user"></i> Nombre</label>
+                        <input type="text" name="nombre" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Apellido Paterno</label>
+                        <input type="text" name="paterno" placeholder="Primer apellido" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Apellido Materno</label>
+                        <input type="text" name="materno" placeholder="Segundo apellido">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <div class="input-group">
+                        <label><i class="ph ph-identification-card"></i> Matrícula</label>
+                        <input type="text" name="matricula" placeholder="Ej: 122030xxx" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="ph ph-envelope"></i> Correo</label>
+                        <input type="email" name="correo" placeholder="usuario@upa.edu.mx" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="ph ph-phone"></i> Teléfono</label>
+                        <input type="tel" name="telefono" placeholder="712 xxx xxxx">
+                    </div>
+                </div>
+
+                <div class="form-section full-width">
+                    <div class="select-wrapper">
+                        <div class="input-group">
+                            <label><i class="ph ph-graduation-cap"></i> Carrera</label>
+                            <select name="carrera" required>
+                                <option disabled selected value="">Selecciona tu carrera</option>
+                                <option value="software">Ing. en Software</option>
+                                <option value="sistemas">Ing. en Sistemas Computacionales</option>
+                            </select>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label><i class="ph ph-clipboard-text"></i> Taller</label>
+                            <select id="taller-select" name="taller" required onchange="actualizarHorarios()">
+                                <option disabled selected value="">Selecciona un taller</option>
+                                <option value="kickboxing">Kickboxing</option>
+                                <option value="taekwondo">Taekwondo</option>
+                                <option value="gimnasio">Gimnasio</option>
+                                <option value="baile">Baile</option>
+                                <option value="ajedrez">Ajedrez</option>
+                                <option value="musica">Música</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="ph ph-clock"></i> Horario Disponible</label>
+                            <select id="horario-select" name="horario" required>
+                                <option disabled selected value="">Días y horas</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="location.href='index.html'">
+                        <i class="ph ph-house"></i> Inicio
+                    </button>
+                    <button type="submit" class="btn-primary-talleres">
+                        <i class="ph ph-paper-plane-tilt"></i> Registrar Taller
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function actualizarHorarios() {
+            const taller = document.getElementById('taller-select').value;
+            const horarioSelect = document.getElementById('horario-select');
+            horarioSelect.innerHTML = '<option disabled selected value="">Días y horas</option>';
+
+            const opciones = {
+                'kickboxing': ['Lunes y Miércoles | 14:00 - 16:00 (4 hrs/sem)'],
+                'taekwondo': ['Martes y Jueves | 14:00 - 16:00 (4 hrs/sem)'],
+                'gimnasio': ['Lunes a Viernes | 07:00 - 15:00 (Libre)'],
+                'baile': ['Lun, Mié y Vie | 15:00 - 17:00 (6 hrs/sem)'],
+                'ajedrez': ['Lunes a Jueves | 13:00 - 14:00 (4 hrs/sem)'],
+                'musica': ['Lunes y Jueves | 11:00 - 13:00 (4 hrs/sem)']
+            };
+
+            if (opciones[taller]) {
+                opciones[taller].forEach(horario => {
+                    const opt = document.createElement('option');
+                    opt.value = horario;
+                    opt.innerHTML = horario;
+                    horarioSelect.appendChild(opt);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
